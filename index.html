@@ -15,12 +15,13 @@
         smalltalk.initialize();
 
         $(function() {
-          //smalltalk.Clock._begin();
+          smalltalk.App._begin();
           require('amber_vm/smalltalk').Browser._open()
         })
       });
     </script>
   </head>
-  <body>
+  <body onbeforeunload='return confirm("Do you want to exit?")'>
+    <div id="app"></div>
   </body>
 </html>
