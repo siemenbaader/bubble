@@ -32,3 +32,23 @@ renderOn: html
 	html button with: 'Restart Application'; onClick: [ App begin ].
 ! !
 
+Object subclass: #Websocket
+	instanceVariableNames: 'onMessage ws'
+	package: 'Bubble'!
+
+!Websocket methodsFor: 'not yet classified'!
+
+connect: url
+	< 
+	self['@ws'] = new WebSocket( url );
+	>
+!
+
+onMessage: block
+	< self['@ws'].onmessage = block; >
+!
+
+sendMessage: aString
+	ws send: aString.
+! !
+

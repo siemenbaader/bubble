@@ -81,4 +81,57 @@ referencedClasses: ["App"]
 smalltalk.DevBar);
 
 
+
+smalltalk.addClass('Websocket', smalltalk.Object, ['onMessage', 'ws'], 'Bubble');
+smalltalk.addMethod(
+smalltalk.method({
+selector: "connect:",
+category: 'not yet classified',
+fn: function (url){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+ 
+	self['@ws'] = new WebSocket( url );
+	;
+return self}, function($ctx1) {$ctx1.fill(self,"connect:",{url:url},smalltalk.Websocket)})},
+args: ["url"],
+source: "connect: url\x0a\x09< \x0a\x09self['@ws'] = new WebSocket( url );\x0a\x09>\x0a\x09",
+messageSends: [],
+referencedClasses: []
+}),
+smalltalk.Websocket);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "onMessage:",
+category: 'not yet classified',
+fn: function (block){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+ self['@ws'].onmessage = block; ;
+return self}, function($ctx1) {$ctx1.fill(self,"onMessage:",{block:block},smalltalk.Websocket)})},
+args: ["block"],
+source: "onMessage: block\x0a\x09< self['@ws'].onmessage = block; >",
+messageSends: [],
+referencedClasses: []
+}),
+smalltalk.Websocket);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "sendMessage:",
+category: 'not yet classified',
+fn: function (aString){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+_st(self["@ws"])._send_(aString);
+return self}, function($ctx1) {$ctx1.fill(self,"sendMessage:",{aString:aString},smalltalk.Websocket)})},
+args: ["aString"],
+source: "sendMessage: aString\x0a\x09ws send: aString.",
+messageSends: ["send:"],
+referencedClasses: []
+}),
+smalltalk.Websocket);
+
+
 });
