@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bubble</title>
+    <script src="../vendor/amber/support/amber.js"></script>
+    <script src="../vendor/amber/support/requirejs/require.min.js"></script>
+    <script type="text/javascript">
+      require.config({ paths: {
+        'bubble': 'js', //mapping compiled .js files
+        'bubble/_source': 'st' //mapping smalltalk source files
+      }});
+
+      require(['amber/devel', 'bubble/Bubble'], function (smalltalk) {
+        smalltalk.defaultAmdNamespace = "bubble";
+        smalltalk.initialize();
+
+        $(function() {
+          //smalltalk.Clock._begin();
+          require('amber_vm/smalltalk').Browser._open()
+        })
+      });
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
